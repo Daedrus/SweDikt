@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>SweDikt</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QStackedWidget" name="stackedWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>400</width>
+      <height>247</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="homePage">
+     <widget class="QPushButton" name="openButton">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>20</y>
+        <width>101</width>
+        <height>101</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Open Dictionary</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="simpleQuizButton">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>140</y>
+        <width>101</width>
+        <height>101</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Simple Quiz</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="detailedQuizButton">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>140</y>
+        <width>101</width>
+        <height>101</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Detailed Quiz</string>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>10</y>
+        <width>211</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Edit Dictionary</string>
+      </property>
+      <widget class="QPushButton" name="addNounsButton">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>20</y>
+         <width>81</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Add Nouns</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="addVerbsButton">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>50</y>
+         <width>81</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Add Verbs</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="addAdjectivesButton">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>80</y>
+         <width>81</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Add Adjectives</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="editAdjectivesButton">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>80</y>
+         <width>81</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Edit Adjectives</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="editVerbsButton">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>50</y>
+         <width>81</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Edit Verbs</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="editNounsButton">
+       <property name="geometry">
+        <rect>
+         <x>110</x>
+         <y>20</y>
+         <width>81</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Edit Nouns</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="simpleQuizPage">
+     <widget class="QTextBrowser" name="questionBox">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>10</y>
+        <width>256</width>
+        <height>71</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="answerBox">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>100</y>
+        <width>113</width>
+        <height>20</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="answerButton">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>130</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Answer</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="nextButton">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>100</y>
+        <width>61</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Next</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="feedbackText">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>180</y>
+        <width>251</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="backButton">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>220</y>
+        <width>111</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Back to Main Menu</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="detailedQuizPage">
+     <widget class="QLineEdit" name="answerBox_2">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>70</y>
+        <width>113</width>
+        <height>20</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="answerButton_2">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>180</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Answer</string>
+      </property>
+     </widget>
+     <widget class="QTextBrowser" name="questionBox_2">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>10</y>
+        <width>256</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="backButton_2">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>220</y>
+        <width>111</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Back to Main Menu</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="nextButton_2">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>180</y>
+        <width>61</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Next</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="answerBox_1">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>50</y>
+        <width>113</width>
+        <height>20</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="answerBox_5">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>130</y>
+        <width>113</width>
+        <height>20</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="answerBox_4">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>110</y>
+        <width>113</width>
+        <height>20</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="answerBox_3">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>90</y>
+        <width>113</width>
+        <height>20</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_1">
+      <property name="geometry">
+       <rect>
+        <x>35</x>
+        <y>50</y>
+        <width>101</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>35</x>
+        <y>70</y>
+        <width>101</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>35</x>
+        <y>90</y>
+        <width>101</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_4">
+      <property name="geometry">
+       <rect>
+        <x>35</x>
+        <y>110</y>
+        <width>101</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_5">
+      <property name="geometry">
+       <rect>
+        <x>35</x>
+        <y>130</y>
+        <width>101</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="feedback_1">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>50</y>
+        <width>131</width>
+        <height>16</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="feedback_3">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>90</y>
+        <width>131</width>
+        <height>16</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="feedback_2">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>70</y>
+        <width>131</width>
+        <height>16</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="feedback_5">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>130</y>
+        <width>131</width>
+        <height>16</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="feedback_4">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>110</y>
+        <width>131</width>
+        <height>16</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>400</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuSweDikt">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menuSweDikt"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>openButton</tabstop>
+  <tabstop>simpleQuizButton</tabstop>
+  <tabstop>detailedQuizButton</tabstop>
+  <tabstop>addNounsButton</tabstop>
+  <tabstop>addVerbsButton</tabstop>
+  <tabstop>addAdjectivesButton</tabstop>
+  <tabstop>editNounsButton</tabstop>
+  <tabstop>editVerbsButton</tabstop>
+  <tabstop>editAdjectivesButton</tabstop>
+  <tabstop>questionBox</tabstop>
+  <tabstop>answerBox</tabstop>
+  <tabstop>answerButton</tabstop>
+  <tabstop>nextButton</tabstop>
+  <tabstop>backButton</tabstop>
+  <tabstop>questionBox_2</tabstop>
+  <tabstop>answerBox_1</tabstop>
+  <tabstop>answerBox_2</tabstop>
+  <tabstop>answerBox_3</tabstop>
+  <tabstop>answerBox_4</tabstop>
+  <tabstop>answerBox_5</tabstop>
+  <tabstop>answerButton_2</tabstop>
+  <tabstop>backButton_2</tabstop>
+  <tabstop>nextButton_2</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>answerBox_1</sender>
+   <signal>returnPressed()</signal>
+   <receiver>answerBox_2</receiver>
+   <slot>setFocus()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>236</x>
+     <y>94</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>234</x>
+     <y>112</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>answerBox_2</sender>
+   <signal>returnPressed()</signal>
+   <receiver>answerBox_3</receiver>
+   <slot>setFocus()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>193</x>
+     <y>111</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>168</x>
+     <y>129</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>answerBox_3</sender>
+   <signal>returnPressed()</signal>
+   <receiver>answerBox_4</receiver>
+   <slot>setFocus()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>154</x>
+     <y>134</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>154</x>
+     <y>145</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>answerBox_4</sender>
+   <signal>returnPressed()</signal>
+   <receiver>answerBox_5</receiver>
+   <slot>setFocus()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>201</x>
+     <y>148</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>197</x>
+     <y>165</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>answerBox_5</sender>
+   <signal>returnPressed()</signal>
+   <receiver>answerButton_2</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>230</x>
+     <y>173</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>219</x>
+     <y>225</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

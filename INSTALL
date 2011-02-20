@@ -1,0 +1,13 @@
+To compile SweDikt you will need Qt libraries version 4.6.0 or newer.
+
+Follow these steps on Linux:
+
+1. Get the SweDikt source code
+2. Enter the source code main directory
+3. Type:
+
+  # qmake
+  # make
+  # ./SweDikt
+
+4. Enjoy!

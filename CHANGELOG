@@ -1,0 +1,7 @@
+v0.1 (2011/02/20):
+- Can create or open an existing dictionary
+- Can add/edit words to/from the dictionary. No possibility of deleting
+  words yet.
+- Simple 3 nouns/3 verbs/3 adjectives quiz
+- Detailed 3 nouns/3 verbs/3 adjectives quiz
+

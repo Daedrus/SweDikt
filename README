@@ -1,0 +1,23 @@
+SweDikt is a small application that can be used when you're starting to learn
+swedish. You can use it to enter words in the dictionary as you learn them and
+then play small quizzes that test your knowledge.
+
+See Help->About in the application to read a short tutorial on how everything
+works.
+
+Features' summary as of v0.1:
+- Can create or open an existing dictionary
+- Can add/edit words to/from the dictionary. No possibility of deleting
+  words yet, sorry! The whole edit dictionary code has to be redone so you don't
+  have to push 9000 buttons to do what you want.
+- Simple and detailed quizzes.
+
+See CHANGELOG for details
+
+If you have an issue to report, request a feature, or just say how much I've
+ruined your life with this app, contact me via e-mail (da3drus AT gmail DOT com)
+
+Enjoy!
+
+Andrei Faur
+
