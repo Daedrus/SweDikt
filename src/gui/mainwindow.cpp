@@ -126,6 +126,13 @@ void MainWindow::on_addNounsButton_clicked()
 {
     NounDialog nounDialog;
 
+    if (sweDict == 0) {
+        QMessageBox::warning(this, tr("Warning"),
+                             "No dictionary has been loaded",
+                             QMessageBox::Ok);
+        return;
+    }
+
     if (nounDialog.exec() == QDialog::Accepted) {
         sweDict->addNoun(nounDialog.getEnEtt(),
                          nounDialog.getBestSingForm(),
@@ -140,6 +147,13 @@ void MainWindow::on_addVerbsButton_clicked()
 {
     VerbDialog verbDialog;
 
+    if (sweDict == 0) {
+        QMessageBox::warning(this, tr("Warning"),
+                             "No dictionary has been loaded",
+                             QMessageBox::Ok);
+        return;
+    }
+
     if (verbDialog.exec() == QDialog::Accepted) {
         sweDict->addVerb(verbDialog.getImperativForm(),
                          verbDialog.getInfinitivForm(),
@@ -153,6 +167,13 @@ void MainWindow::on_addVerbsButton_clicked()
 void MainWindow::on_addAdjectivesButton_clicked()
 {
     AdjectiveDialog adjectiveDialog;
+
+    if (sweDict == 0) {
+        QMessageBox::warning(this, tr("Warning"),
+                             "No dictionary has been loaded",
+                             QMessageBox::Ok);
+        return;
+    }
 
     if (adjectiveDialog.exec() == QDialog::Accepted) {
         sweDict->addAdjective(adjectiveDialog.getPositivForm(),
