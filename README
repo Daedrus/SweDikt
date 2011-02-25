@@ -5,11 +5,9 @@ then play small quizzes that test your knowledge.
 See Help->About in the application to read a short tutorial on how everything
 works.
 
-Features' summary as of v0.1:
+Features' summary as of v0.2:
 - Can create or open an existing dictionary
-- Can add/edit words to/from the dictionary. No possibility of deleting
-  words yet, sorry! The whole edit dictionary code has to be redone so you don't
-  have to push 9000 buttons to do what you want.
+- Can add/delete/edit words to/from the dictionary.
 - Simple and detailed quizzes.
 
 See CHANGELOG for details

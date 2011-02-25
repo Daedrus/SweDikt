@@ -1,3 +1,9 @@
+v0.2 (2011/02/25):
+- Revamped dictionary editing, created a new interface through which you
+can now delete from the dictionary
+- Fixed bugs: crash when opening several dictionaries, pressing
+enter on the last form line caused quizzes to advance
+
 v0.1 (2011/02/20):
 - Can create or open an existing dictionary
 - Can add/edit words to/from the dictionary. No possibility of deleting
