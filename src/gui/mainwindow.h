@@ -24,6 +24,8 @@ private:
     Quiz *quiz;
 
 private slots:
+    void on_answerBox_5_returnPressed();
+    void on_editButton_clicked();
     void on_actionAbout_triggered();
     void on_stackedWidget_currentChanged(int );
     void on_answerBox_returnPressed();
@@ -31,13 +33,7 @@ private slots:
     void on_nextButton_2_clicked();
     void on_answerButton_2_clicked();
     void on_detailedQuizButton_clicked();
-    void on_addAdjectivesButton_clicked();
-    void on_addVerbsButton_clicked();
-    void on_addNounsButton_clicked();
     void on_openButton_clicked();
-    void on_editAdjectivesButton_clicked();
-    void on_editVerbsButton_clicked();
-    void on_editNounsButton_clicked();
     void on_backButton_clicked();
     void on_answerButton_clicked();
     void on_nextButton_clicked();

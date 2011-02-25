@@ -69,96 +69,18 @@
        <string>Detailed Quiz</string>
       </property>
      </widget>
-     <widget class="QGroupBox" name="groupBox">
+     <widget class="QPushButton" name="editButton">
       <property name="geometry">
        <rect>
-        <x>160</x>
-        <y>10</y>
-        <width>211</width>
-        <height>111</height>
+        <x>260</x>
+        <y>20</y>
+        <width>101</width>
+        <height>101</height>
        </rect>
       </property>
-      <property name="title">
+      <property name="text">
        <string>Edit Dictionary</string>
       </property>
-      <widget class="QPushButton" name="addNounsButton">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>20</y>
-         <width>81</width>
-         <height>23</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Add Nouns</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="addVerbsButton">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>50</y>
-         <width>81</width>
-         <height>23</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Add Verbs</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="addAdjectivesButton">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>80</y>
-         <width>81</width>
-         <height>23</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Add Adjectives</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="editAdjectivesButton">
-       <property name="geometry">
-        <rect>
-         <x>110</x>
-         <y>80</y>
-         <width>81</width>
-         <height>23</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Edit Adjectives</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="editVerbsButton">
-       <property name="geometry">
-        <rect>
-         <x>110</x>
-         <y>50</y>
-         <width>81</width>
-         <height>23</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Edit Verbs</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="editNounsButton">
-       <property name="geometry">
-        <rect>
-         <x>110</x>
-         <y>20</y>
-         <width>81</width>
-         <height>23</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Edit Nouns</string>
-       </property>
-      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="simpleQuizPage">
@@ -462,7 +384,7 @@
      <x>0</x>
      <y>0</y>
      <width>400</width>
-     <height>21</height>
+     <height>23</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuSweDikt">
@@ -493,12 +415,6 @@
   <tabstop>openButton</tabstop>
   <tabstop>simpleQuizButton</tabstop>
   <tabstop>detailedQuizButton</tabstop>
-  <tabstop>addNounsButton</tabstop>
-  <tabstop>addVerbsButton</tabstop>
-  <tabstop>addAdjectivesButton</tabstop>
-  <tabstop>editNounsButton</tabstop>
-  <tabstop>editVerbsButton</tabstop>
-  <tabstop>editAdjectivesButton</tabstop>
   <tabstop>questionBox</tabstop>
   <tabstop>answerBox</tabstop>
   <tabstop>answerButton</tabstop>
@@ -560,7 +476,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>154</x>
-     <y>145</y>
+     <y>165</y>
     </hint>
    </hints>
   </connection>
@@ -576,23 +492,7 @@
     </hint>
     <hint type="destinationlabel">
      <x>197</x>
-     <y>165</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>answerBox_5</sender>
-   <signal>returnPressed()</signal>
-   <receiver>answerButton_2</receiver>
-   <slot>click()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>230</x>
-     <y>173</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>219</x>
-     <y>225</y>
+     <y>185</y>
     </hint>
    </hints>
   </connection>

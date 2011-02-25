@@ -23,7 +23,6 @@ quint16 Question::getQuestionType() const
 void Question::setUserAnswers(QList<QString> &userAnswers)
 {
     userAnswers_ = userAnswers;
-    answered_ = true;
 }
 
 QBitArray Question::validAnswers()
@@ -41,10 +40,3 @@ quint16 Question::getScore()
 {
     return (validAnswers().count(true) == answers_.size()) ? value_ : 0;
 }
-
-bool Question::isAnswered()
-{
-    return answered_;
-}
-
-

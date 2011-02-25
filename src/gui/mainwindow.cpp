@@ -5,9 +5,9 @@
 #include <QDebug>
 #include <QSqlTableModel>
 #include <QTableView>
-#include "noundialog.h"
-#include "verbdialog.h"
-#include "adjectivedialog.h"
+#include "swedictionarytablemodel.h"
+#include "dictdialog.h"
+#include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -31,13 +31,32 @@ void MainWindow::on_openButton_clicked()
     QString path = QFileDialog::getSaveFileName(this, tr("Choose database"), "", 0, 0, QFileDialog::DontConfirmOverwrite);
 
     try {
-        sweDict = new SweDictionary(path);
+        if (!path.isEmpty()) {
+            if (sweDict != 0) {
+                delete sweDict;
+            }
+            sweDict = new SweDictionary(path);
+        }
     } catch (int error) {
         ui->statusBar->showMessage("Could not open dictionary");
         return;
     }
 
     ui->statusBar->showMessage("Dictionary opened");
+}
+
+void MainWindow::on_editButton_clicked()
+{
+    if (sweDict == 0) {
+            QMessageBox::warning(this, tr("Warning"),
+                                 "No dictionary has been loaded",
+                                 QMessageBox::Ok);
+            return;
+    }
+
+    DictDialog dictDialog(this, sweDict);
+
+    dictDialog.exec();
 }
 
 void MainWindow::on_simpleQuizButton_clicked()
@@ -72,115 +91,6 @@ void MainWindow::on_detailedQuizButton_clicked()
     QuizBuilder::addDetailedAdjectiveQuestions(*quiz, *sweDict, 3);
 
     ui->stackedWidget->setCurrentIndex(2);
-}
-
-void MainWindow::on_editNounsButton_clicked()
-{
-    if (sweDict == 0) {
-        QMessageBox::warning(this, tr("Warning"),
-                             "No dictionary has been loaded",
-                             QMessageBox::Ok);
-        return;
-    }
-
-    QSqlTableModel &model = sweDict->getModel(this, "noun");
-
-    QTableView *view = new QTableView;
-    view->setModel(&model);
-    view->show();
-}
-
-void MainWindow::on_editVerbsButton_clicked()
-{
-    if (sweDict == 0) {
-        QMessageBox::warning(this, tr("Warning"),
-                             "No dictionary has been loaded",
-                             QMessageBox::Ok);
-        return;
-    }
-
-    QSqlTableModel &model = sweDict->getModel(this, "verb");
-
-    QTableView *view = new QTableView;
-    view->setModel(&model);
-    view->show();
-}
-
-void MainWindow::on_editAdjectivesButton_clicked()
-{
-    if (sweDict == 0) {
-        QMessageBox::warning(this, tr("Warning"),
-                             "No dictionary has been loaded",
-                             QMessageBox::Ok);
-        return;
-    }
-
-    QSqlTableModel &model = sweDict->getModel(this, "adjective");
-
-    QTableView *view = new QTableView;
-    view->setModel(&model);
-    view->show();
-}
-
-void MainWindow::on_addNounsButton_clicked()
-{
-    NounDialog nounDialog;
-
-    if (sweDict == 0) {
-        QMessageBox::warning(this, tr("Warning"),
-                             "No dictionary has been loaded",
-                             QMessageBox::Ok);
-        return;
-    }
-
-    if (nounDialog.exec() == QDialog::Accepted) {
-        sweDict->addNoun(nounDialog.getEnEtt(),
-                         nounDialog.getBestSingForm(),
-                         nounDialog.getObestSingForm(),
-                         nounDialog.getBestPlurForm(),
-                         nounDialog.getObestSingForm(),
-                         nounDialog.getEngTrans());
-    }
-}
-
-void MainWindow::on_addVerbsButton_clicked()
-{
-    VerbDialog verbDialog;
-
-    if (sweDict == 0) {
-        QMessageBox::warning(this, tr("Warning"),
-                             "No dictionary has been loaded",
-                             QMessageBox::Ok);
-        return;
-    }
-
-    if (verbDialog.exec() == QDialog::Accepted) {
-        sweDict->addVerb(verbDialog.getImperativForm(),
-                         verbDialog.getInfinitivForm(),
-                         verbDialog.getPresensForm(),
-                         verbDialog.getPreteritumForm(),
-                         verbDialog.getSupinumForm(),
-                         verbDialog.getEngTrans());
-    }
-}
-
-void MainWindow::on_addAdjectivesButton_clicked()
-{
-    AdjectiveDialog adjectiveDialog;
-
-    if (sweDict == 0) {
-        QMessageBox::warning(this, tr("Warning"),
-                             "No dictionary has been loaded",
-                             QMessageBox::Ok);
-        return;
-    }
-
-    if (adjectiveDialog.exec() == QDialog::Accepted) {
-        sweDict->addAdjective(adjectiveDialog.getPositivForm(),
-                              adjectiveDialog.getKomparativForm(),
-                              adjectiveDialog.getSuperlativForm(),
-                              adjectiveDialog.getEngTrans());
-    }
 }
 
 /**
@@ -220,7 +130,6 @@ void MainWindow::on_nextButton_clicked()
 
 void MainWindow::on_answerButton_clicked()
 {
-
     ui->answerButton->hide();
 
     QList<QString> userAnswers;
@@ -244,6 +153,13 @@ void MainWindow::on_backButton_clicked()
     ui->stackedWidget->setCurrentIndex(0);
 
     delete quiz;
+}
+
+void MainWindow::on_answerBox_returnPressed()
+{
+    if (ui->answerButton->isVisible()) {
+        ui->answerButton->click();
+    }
 }
 
 /**
@@ -448,13 +364,6 @@ void MainWindow::on_backButton_2_clicked()
     delete quiz;
 }
 
-void MainWindow::on_answerBox_returnPressed()
-{
-    if (!quiz->currentQuestion().isAnswered()) {
-        ui->answerButton->click();
-    }
-}
-
 void MainWindow::on_stackedWidget_currentChanged(int window)
 {
     switch(window) {
@@ -509,4 +418,11 @@ void MainWindow::on_actionAbout_triggered()
 
     aboutBox->setModal(false);
     aboutBox->open();
+}
+
+void MainWindow::on_answerBox_5_returnPressed()
+{
+    if (ui->answerButton_2->isVisible()) {
+        ui->answerButton_2->click();
+    }
 }

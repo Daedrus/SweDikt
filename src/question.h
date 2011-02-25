@@ -24,8 +24,7 @@ public:
                  text_(text),
                  answers_(answers),
                  value_(value),
-                 questionType_(questionType),
-                 answered_(false) {}
+                 questionType_(questionType) {}
 
     enum TYPE {
         NOUN,
@@ -66,7 +65,6 @@ private:
     QList<QString> userAnswers_;
     quint16 value_;
     quint16 questionType_;
-    bool answered_;
 };
 
 #endif // QUESTION_H

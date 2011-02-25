@@ -8,6 +8,7 @@
 #include <QList>
 #include <QVariant>
 #include "word.h"
+#include "swedictionarytablemodel.h"
 
 /**
  * The core class of the application, it abstracts the connection
@@ -21,6 +22,11 @@ public:
      * SweDictionary constructor
      */
     SweDictionary(QString &dbName);
+
+    /**
+     * SweDictionary destructor
+     */
+    ~SweDictionary();
 
     /**
      * @return A list of count random nouns from the database
@@ -60,7 +66,7 @@ public:
     /**
      * :KLUDGE: bleah, yuck, I have to get rid of this.
      */
-    QSqlTableModel& getModel(QObject *parent, QString table);
+    SweDictionaryTableModel* getModel(QObject *parent, QString table);
 
 private:
     QSqlDatabase db_;
@@ -68,7 +74,7 @@ private:
     enum queries {nounAdd, nounSearch, nounQuiz,
                   verbAdd, verbSearch, verbQuiz,
                   adjAdd, adjSearch, adjQuiz};
-    QSqlTableModel *model_;
+    SweDictionaryTableModel *model_;
 };
 
 #endif // SWEDICTIONARY_H

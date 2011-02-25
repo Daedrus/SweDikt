@@ -81,96 +81,107 @@ SweDictionary::SweDictionary(QString &dbName)
     preparedQueries.append(query);
 }
 
+SweDictionary::~SweDictionary()
+{
+    QString connection;
+
+    connection = db_.connectionName();
+    db_.close();
+
+    QSqlDatabase::removeDatabase(connection);
+
+}
+
 QList<Noun>& SweDictionary::getRandomNouns(quint16 count) const
 {
-  Noun *noun;
-  QList<Noun> *nouns = new QList<Noun>();
+    Noun *noun;
+    QList<Noun> *nouns = new QList<Noun>();
 
-  QSqlQuery query = preparedQueries.at(nounQuiz);
-  query.bindValue(0, count);
+    QSqlQuery query = preparedQueries.at(nounQuiz);
+    query.bindValue(0, count);
 
-  query.exec();
+    query.exec();
 
-  while (query.next()) {
-      noun = new Noun(query.value(1).toString(),
-                      query.value(2).toString(),
-                      query.value(3).toString(),
-                      query.value(4).toString(),
-                      query.value(5).toString(),
-                      query.value(6).toString());
+    while (query.next()) {
+        noun = new Noun(query.value(1).toString(),
+                        query.value(2).toString(),
+                        query.value(3).toString(),
+                        query.value(4).toString(),
+                        query.value(5).toString(),
+                        query.value(6).toString());
 
-      nouns->append(*noun);
+        nouns->append(*noun);
 
-      delete noun;
-  }
+        delete noun;
+    }
 
-  query.clear();
+    query.clear();
 
-  return *nouns;
+    return *nouns;
 }
 
 QList<Verb>& SweDictionary::getRandomVerbs(quint16 count) const
 {
-  Verb *verb;
-  QList<Verb> *verbs = new QList<Verb>();
+    Verb *verb;
+    QList<Verb> *verbs = new QList<Verb>();
 
-  QSqlQuery query = preparedQueries.at(verbQuiz);
-  query.bindValue(0, count);
+    QSqlQuery query = preparedQueries.at(verbQuiz);
+    query.bindValue(0, count);
 
-  query.exec();
+    query.exec();
 
-  while (query.next()) {
-      verb = new Verb(query.value(1).toString(),
-                      query.value(2).toString(),
-                      query.value(3).toString(),
-                      query.value(4).toString(),
-                      query.value(5).toString(),
-                      query.value(6).toString());
+    while (query.next()) {
+        verb = new Verb(query.value(1).toString(),
+                        query.value(2).toString(),
+                        query.value(3).toString(),
+                        query.value(4).toString(),
+                        query.value(5).toString(),
+                        query.value(6).toString());
 
-      verbs->append(*verb);
+        verbs->append(*verb);
 
-      delete verb;
-  }
+        delete verb;
+    }
 
-  query.clear();
+    query.clear();
 
-  return *verbs;
+    return *verbs;
 }
 
 QList<Adjective>& SweDictionary::getRandomAdjectives(quint16 count) const
 {
-  Adjective *adjective;
-  QList<Adjective> *adjectives = new QList<Adjective>();
+    Adjective *adjective;
+    QList<Adjective> *adjectives = new QList<Adjective>();
 
-  QSqlQuery query = preparedQueries.at(adjQuiz);
-  query.bindValue(0, count);
+    QSqlQuery query = preparedQueries.at(adjQuiz);
+    query.bindValue(0, count);
 
-  query.exec();
+    query.exec();
 
-  while (query.next()) {
-      adjective = new Adjective(query.value(1).toString(),
-                                query.value(2).toString(),
-                                query.value(3).toString(),
-                                query.value(4).toString());
+    while (query.next()) {
+        adjective = new Adjective(query.value(1).toString(),
+                                  query.value(2).toString(),
+                                  query.value(3).toString(),
+                                  query.value(4).toString());
 
-      adjectives->append(*adjective);
+        adjectives->append(*adjective);
 
-      delete adjective;
-  }
+        delete adjective;
+    }
 
-  query.clear();
+    query.clear();
 
-  return *adjectives;
+    return *adjectives;
 }
 
-QSqlTableModel& SweDictionary::getModel(QObject *parent, QString table)
+SweDictionaryTableModel* SweDictionary::getModel(QObject *parent, QString table)
 {
-    model_ = new QSqlTableModel(parent, db_);
+    model_ = new SweDictionaryTableModel(parent, db_);
     model_->setTable(table);
+    model_->setEditStrategy(QSqlTableModel::OnManualSubmit);
     model_->select();
-    model_->removeColumn(0);
 
-    return *model_;
+    return model_;
 }
 
 void SweDictionary::addNoun(QString enEtt,

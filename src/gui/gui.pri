@@ -1,16 +1,10 @@
-SOURCES += $$PWD/adjectivedialog.cpp\
-           $$PWD/noundialog.cpp\
-           $$PWD/verbdialog.cpp\
-           $$PWD/mainwindow.cpp
+SOURCES += $$PWD/mainwindow.cpp \
+           $$PWD/dictdialog.cpp
 
-HEADERS += $$PWD/adjectivedialog.h\
-           $$PWD/noundialog.h\
-           $$PWD/verbdialog.h\
-           $$PWD/mainwindow.h
+HEADERS += $$PWD/mainwindow.h \
+           $$PWD/dictdialog.h
 
-FORMS += $$PWD/adjectivedialog.ui\
-         $$PWD/mainwindow.ui\
-         $$PWD/noundialog.ui\
-         $$PWD/verbdialog.ui
+FORMS += $$PWD/mainwindow.ui \
+         $$PWD/dictdialog.ui
 
 INCLUDEPATH += $$PWD
