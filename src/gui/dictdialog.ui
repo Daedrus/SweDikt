@@ -7,11 +7,11 @@
     <x>0</x>
     <y>0</y>
     <width>700</width>
-    <height>400</height>
+    <height>406</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>EditDictionary</string>
+   <string>Edit Dictionary</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -72,37 +72,43 @@
     <widget class="QTableView" name="tableView"/>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
-     <item>
-      <widget class="QPushButton" name="deleteRowButton">
-       <property name="maximumSize">
-        <size>
-         <width>100</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>Delete entry</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="saveButton">
-       <property name="maximumSize">
-        <size>
-         <width>100</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>Save changes</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
+    <widget class="QSplitter" name="splitter">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <widget class="QLineEdit" name="searchPattern"/>
+     <widget class="QPushButton" name="searchButton">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text">
+       <string>Search</string>
+      </property>
+     </widget>
+    </widget>
    </item>
   </layout>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>searchPattern</sender>
+   <signal>returnPressed()</signal>
+   <receiver>searchButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>495</x>
+     <y>272</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>551</x>
+     <y>264</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

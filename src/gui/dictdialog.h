@@ -3,6 +3,7 @@
 
 #include "swedictionary.h"
 #include "swedictionarytablemodel.h"
+#include <QKeyEvent>
 
 #include <QDialog>
 
@@ -18,14 +19,16 @@ public:
     explicit DictDialog(QWidget *parent, SweDictionary *sweDict);
     ~DictDialog();
 
+    void keyPressEvent(QKeyEvent *event);
+    void closeEvent(QCloseEvent *event);
+
 private:
     Ui::DictDialog *ui;
     SweDictionary *sweDict_;
     SweDictionaryTableModel *currentModel_;
 
 private slots:
-    void on_saveButton_clicked();
-    void on_deleteRowButton_clicked();
+    void on_searchButton_clicked();
     void on_tableSelection_activated(int index);
 };
 
