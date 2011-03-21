@@ -41,8 +41,10 @@ void DictDialog::closeEvent(QCloseEvent *event)
 
 void DictDialog::on_tableSelection_activated(int index)
 {
-    if (currentModel_ != 0)
+    if (currentModel_ != 0) {
+        currentModel_->submitAll();
         delete currentModel_;
+    }
 
     switch(index) {
     case 0:
@@ -64,17 +66,11 @@ void DictDialog::on_tableSelection_activated(int index)
     ui->tableView->show();
 }
 
-/*void DictDialog::on_deleteRowButton_clicked()
-{
-    if (ui->tableView->selectionModel()->currentIndex().isValid()) {
-        currentModel_->removeRow(ui->tableView->selectionModel()->currentIndex().row());
-        currentModel_->submitAll();
-    }
-}*/
-
 void DictDialog::on_searchButton_clicked()
 {
     QString whereClause;
+
+    currentModel_->submitAll();
 
     if (ui->searchPattern->text().isEmpty()) {
         currentModel_->setFilter("");
